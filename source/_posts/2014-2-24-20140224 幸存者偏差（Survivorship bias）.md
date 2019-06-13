@@ -4,7 +4,7 @@ categories:
 tags: [股票,证券,幸存者偏差]
 comment: 
 info: 
-date: '2016-7-1'
+date: '2014-2-24'
 type: post
 layout: post
 published: true
