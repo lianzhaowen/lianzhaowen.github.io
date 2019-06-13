@@ -11,7 +11,7 @@ layout: post
 published: true
 slug: 20140224 幸存者偏差（Survivorship bias）
 title: 20140224 幸存者偏差（Survivorship bias）
-abbrlink: '5427'
+abbrlink: 551701865
 comment:
 info:
 sha:
