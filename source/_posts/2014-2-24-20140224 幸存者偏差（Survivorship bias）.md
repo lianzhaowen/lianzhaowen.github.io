@@ -1,17 +1,20 @@
 ---
 categories:
   - 心得总结
-tags: [股票,证券,幸存者偏差]
-comment: 
-info: 
-date: '2014-2-24'
+tags:
+  - 股票
+  - 证券
+  - 幸存者偏差
+date: 2014-2-24
 type: post
 layout: post
 published: true
-sha: 
 slug: 20140224 幸存者偏差（Survivorship bias）
 title: 20140224 幸存者偏差（Survivorship bias）
-
+abbrlink: '5427'
+comment:
+info:
+sha:
 ---
 幸存者偏差（Survivorship bias）
 http://baike.baidu.com/link?url=8v-ES6R_bz6TUd3b6mcet2Bk8IclVEqwdTrsYV-8lc5nrMysoE-gTSMlVo78cMYKh5fvDWTtveG-OlQwZ8AjDq
