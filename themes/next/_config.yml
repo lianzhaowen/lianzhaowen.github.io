@@ -439,7 +439,6 @@ tagcloud:
   end: "#111" # end color (hex, rgba, hsla or color keywords)
   amount: 200 # amount of tags, change it if you have more than 200 tags
 
-
 # ---------------------------------------------------------------
 # Font Settings. Introduced in NexT v5.0.1.
 # Find fonts on Google Fonts (https://www.google.com/fonts)
@@ -981,7 +980,7 @@ motion:
 # Choose only one variant, do not need to install both.
 # To install 2.x: https://github.com/theme-next/theme-next-fancybox
 # To install 3.x: https://github.com/theme-next/theme-next-fancybox3
-fancybox: false
+fancybox: true
 
 # Polyfill to remove click delays on browsers with touch UIs.
 # Dependencies: https://github.com/theme-next/theme-next-fastclick
@@ -1059,7 +1058,7 @@ vendors:
   # fancybox: //cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.min.js
   # fancybox_css: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css
   # fancybox_css: //cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.min.css
-  fancybox:
+  fancybox: 
   fancybox_css:
 
   # Internal version: 1.0.6
