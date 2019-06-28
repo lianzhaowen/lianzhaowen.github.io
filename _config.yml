@@ -25,6 +25,29 @@ abbrlink:
   alg: crc32 #support crc16(default) and crc32
   rep: dec    #support dec(default) and hex
 
+        
+# mermaid chart
+mermaidchart: ## mermaid url https://github.com/knsv/mermaid
+  enable: true  # default true
+  version: "7.1.2" # default v7.1.2
+  options:  # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js
+    #startOnload: true  // default true
+
+flowchart:
+  # raphael:   # optional, the source url of raphael.js
+  # flowchart: # optional, the source url of flowchart.js
+  options: # options used for `drawSVG`
+
+sequence:
+  # webfont:         # optional, the source url of webfontloader.js
+  # snap:            # optional, the source url of snap.svg.js
+  # underscore:      # optional, the source url of underscore.js
+  # sequence:        # optional, the source url of sequence-diagram.js
+  # css: # optional, the url for css, such as hand drawn theme 
+  options: 
+    theme: 
+    css_class: 
+    
 # recommended-posts
 recommended_posts:
   server: https://api.truelaurel.com #后端推荐服务器地址

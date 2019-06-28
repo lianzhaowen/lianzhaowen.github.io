@@ -60,3 +60,16 @@
   #}{{ theme.footer.custom_text }}{#
 #}</div>
 {% endif %}
+
+
+{{ theme.mermaidchart.version }}
+
+{% if theme.mermaidchart.enable %}
+  <script src='https://unpkg.com/mermaid@{{ theme.mermaidchart.version }}/dist/mermaid.min.js'></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({{ JSON.stringify(theme.mermaidchart.options) }});
+    }
+  </script>
+{% endif %}
+
