@@ -6,14 +6,8 @@ tags:
   - 证券
   - 幸存者偏差
 date: 2014-2-24
-type: post
-layout: post
-published: true
-slug: 20140224 幸存者偏差（Survivorship bias）
 title: 20140224 幸存者偏差（Survivorship bias）
 abbrlink: 551701865
-comment:
-info:
 sha:
 ---
 幸存者偏差（Survivorship bias）
