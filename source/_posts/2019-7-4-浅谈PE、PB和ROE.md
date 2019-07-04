@@ -1,5 +1,5 @@
 ---
-title: 20190630 浅谈PE、PB和ROE
+title: 20190704 浅谈PE、PB和ROE
 categories:
   - 心得体会
 tags:
@@ -10,8 +10,9 @@ tags:
   - ROE
   - ROIC
   - PEG
-date: 2019-6-30
-abbrlink: 998002609
+  - ROA
+date: 2019-7-4
+abbrlink: 
 mathjax: true
 ---
 
@@ -109,3 +110,12 @@ ROE 相对要严格一点，收益是最重要的
 
 没有收益=垃圾
 
+----
+
+PEG 是用增长平摊收益，其实也就是 PE 和 ROE
+
+ROIC 是算上杠杆的ROE，其实就是单纯的 ROE
+
+ROA 对金融，非银相对比较合适
+
+这三个深入探究可以看看，如果做粗略的筛选 PE PB ROE 足矣
