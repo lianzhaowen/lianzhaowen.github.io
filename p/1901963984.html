@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":"falstruee"},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: true,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},
+    path: 'search.json',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="目的  总结一下本博客架设的过程，怕时间久了忘记，😂1. 框架Github Page + Hexo + Next编辑用用 VSCode，蛮方便的可以参考 打造个性超赞博客 Hexo + NexT + GitHub Pages 的超深度优化  Hexo+NexT 打造一个炫酷博客 2. 程序流程 2.1 Github Page">
+<meta name="keywords" content="程序,博客,架设,Git,Github,Hexo,NexT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="架设博客流程">
+<meta property="og:url" content="&#x2F;p&#x2F;1901963984.html">
+<meta property="og:site_name" content="傻瓜四少的博客">
+<meta property="og:description" content="目的  总结一下本博客架设的过程，怕时间久了忘记，😂1. 框架Github Page + Hexo + Next编辑用用 VSCode，蛮方便的可以参考 打造个性超赞博客 Hexo + NexT + GitHub Pages 的超深度优化  Hexo+NexT 打造一个炫酷博客 2. 程序流程 2.1 Github Page">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-04T13:33:01.572Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="/p/1901963984.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>架设博客流程 | 傻瓜四少的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">傻瓜四少的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">一亩三分自留地</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/lianzhaowen" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="/p/1901963984.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/1888.jpg">
+      <meta itemprop="name" content="傻瓜四少">
+      <meta itemprop="description" content="Stock & Program">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="傻瓜四少的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          架设博客流程
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-06-14 00:00:00" itemprop="dateCreated datePublished" datetime="2019-06-14T00:00:00+08:00">2019-06-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-04 21:33:01" itemprop="dateModified" datetime="2019-11-04T21:33:01+08:00">2019-11-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A8%8B%E5%BA%8F/" itemprop="url" rel="index">
+                    <span itemprop="name">程序</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/p/1901963984.html" class="post-meta-item leancloud_visitors" data-flag-title="架设博客流程" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/p/1901963984.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/p/1901963984.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="目的"><a href="# 目的" class="headerlink" title="目的"></a>目的 </h1><p> 总结一下本博客架设的过程，怕时间久了忘记，😂</p><h2 id="1- 框架"><a href="#1- 框架" class="headerlink" title="1. 框架"></a>1. 框架</h2><p>Github Page + Hexo + Next</p><p>编辑用用 VSCode，蛮方便的</p><p>可以参考</p><ul>
+<li><p><a href="https://io-oi.me/tech/hexo-next-optimization.html">打造个性超赞博客 Hexo + NexT + GitHub Pages 的超深度优化</a></p>
+</li>
+<li><p><a href="http://xyua.top/Hexo/hexo_next_blog.html">Hexo+NexT 打造一个炫酷博客</a></p>
+<h2 id="2- 程序流程"><a href="#2- 程序流程" class="headerlink" title="2. 程序流程"></a>2. 程序流程</h2></li>
+</ul><h3 id="2-1-Github-Page"><a href="#2-1-Github-Page" class="headerlink" title="2.1 Github Page"></a>2.1 Github Page</h3><a id="more"></a>
+
+
+
+
+<p>在 Github 上操作，前提是你要有 Github 账号</p>
+<pre><code>新建 Repository
+
+设置 Repository name  = lianzhaowen.github.io
+
+创建分支 master 和 gh-pages，默认 gh-pages
+
+    master 存放 Hexo 生成的静态网页，网页主站
+
+    gh-pages 存放 Hexo 等程序 </code></pre><p> 本地</p>
+<pre><code>Git clone Repository 本地文件夹 </code></pre><h3 id="2-2-Hexo-amp-NexT"><a href="#2-2-Hexo-amp-NexT" class="headerlink" title="2.2 Hexo &amp; NexT"></a>2.2 Hexo &amp; NexT</h3><p>百度大把教程</p>
+<p>本地 </p>
+<pre><code>安装 Git Bash
+
+安装 node.js
+
+安装 Hexo
+
+    npm install hexo -g  // 安装 Hexo
+
+    cd  本地文件夹        // 进入目录
+
+    hexo init            // 初始化
+
+    npm install          // 安装 Hexo 所需要的组件
+
+安装 NexT
+
+    git clone https://github.com/theme-next/hexo-theme-next themes/next  </code></pre><h2 id="3- 博客日常维护流程"><a href="#3- 博客日常维护流程" class="headerlink" title="3. 博客日常维护流程"></a>3. 博客日常维护流程 </h2><p> 重要目录</p>
+<pre><code>/source/_post                      // 存放博客文章原始的 md 文件
+
+/source/images                     // 存放引用的图像文件
+
+/themems                           // 主题文件夹
+
+/_config.yml                       // 网站配置文件
+
+/themes/ 主题 /_config.yml           // 主题配置文件
+
+/themes/ 主题 /source/lib            // 插件安装在此 </code></pre><h3 id="3-1- 本地调试"><a href="#3-1- 本地调试" class="headerlink" title="3.1 本地调试"></a>3.1 本地调试</h3><pre><code>hexo clean &amp;&amp; hexo s</code></pre><h3 id="3-2- 上传到 Github"><a href="#3-2- 上传到 Github" class="headerlink" title="3.2 上传到 Github"></a>3.2 上传到 Github</h3><pre><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code></pre><h3 id="3-3- 怎么写文章"><a href="#3-3- 怎么写文章" class="headerlink" title="3.3 怎么写文章"></a>3.3 怎么写文章</h3><pre><code> 用 Markdown 写，然后保存在 /source/_post  
+
+参考
+
+- [Markdown 基本语法](https://www.jianshu.com/p/191d1e21f7ed)</code></pre><h3 id="插件 -20191104 修改"><a href="# 插件 -20191104 修改" class="headerlink" title="插件 20191104 修改"></a>插件 20191104 修改</h3><pre><code>&quot;dependencies&quot;: {
+&quot;hexo&quot;: &quot;^4.0.0&quot;,
+&quot;hexo-abbrlink&quot;: &quot;^2.0.5&quot;,
+&quot;hexo-deployer-git&quot;: &quot;^2.0.0&quot;,
+&quot;hexo-filter-auto-spacing&quot;: &quot;^0.2.1&quot;,
+&quot;hexo-generator-archive&quot;: &quot;^1.0.0&quot;,
+&quot;hexo-generator-category&quot;: &quot;^1.0.0&quot;,
+&quot;hexo-generator-index-plus&quot;: &quot;^1.0.0&quot;,
+&quot;hexo-generator-search&quot;: &quot;^2.4.0&quot;,
+&quot;hexo-generator-searchdb&quot;: &quot;^1.1.0&quot;,
+&quot;hexo-generator-tag&quot;: &quot;^1.0.0&quot;,
+&quot;hexo-related-popular-posts&quot;: &quot;^3.0.6&quot;,
+&quot;hexo-renderer-ejs&quot;: &quot;^1.0.0&quot;,
+&quot;hexo-renderer-marked&quot;: &quot;^2.0.0&quot;,
+&quot;hexo-renderer-stylus&quot;: &quot;^1.1.0&quot;,
+&quot;hexo-server&quot;: &quot;^1.0.0&quot;,
+&quot;hexo-symbols-count-time&quot;: &quot;^0.6.3&quot;,
+&quot;medium-zoom&quot;: &quot;^1.0.4&quot;,
+&quot;quicklink&quot;: &quot;^2.0.0-alpha&quot;</code></pre><p>  }</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\p\3761743480.html" rel="bookmark">爬问财的方法</a></div>
+    </li>
+  </ul>
+
+      
+        <div class="reward-container">
+  <div></div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="傻瓜四少 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="傻瓜四少 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E7%A8%8B%E5%BA%8F/" rel="tag"><i class="fa fa-tag"></i> 程序</a>
+              <a href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag"><i class="fa fa-tag"></i> 博客</a>
+              <a href="/tags/%E6%9E%B6%E8%AE%BE/" rel="tag"><i class="fa fa-tag"></i> 架设</a>
+              <a href="/tags/Git/" rel="tag"><i class="fa fa-tag"></i> Git</a>
+              <a href="/tags/Github/" rel="tag"><i class="fa fa-tag"></i> Github</a>
+              <a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
+              <a href="/tags/NexT/" rel="tag"><i class="fa fa-tag"></i> NexT</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/p/3761743480.html" rel="next" title="爬问财的方法">
+                  <i class="fa fa-chevron-left"></i> 爬问财的方法
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/p/4210503008.html" rel="prev" title="Tushare 本地化">
+                  Tushare 本地化 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#目的"><span class="nav-number">1.</span> <span class="nav-text">目的 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1- 框架"><span class="nav-number">1.1.</span> <span class="nav-text">1. 框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2- 程序流程"><span class="nav-number">1.2.</span> <span class="nav-text">2. 程序流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-Github-Page"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 Github Page</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-Hexo-amp-NexT"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 Hexo &amp; NexT</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3- 博客日常维护流程"><span class="nav-number">1.3.</span> <span class="nav-text">3. 博客日常维护流程 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1- 本地调试"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1 本地调试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2- 上传到 Github"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.2 上传到 Github</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3- 怎么写文章"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.3 怎么写文章</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插件 -20191104 修改"><span class="nav-number">1.3.4.</span> <span class="nav-text">插件 20191104 修改</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="傻瓜四少"
+    src="/images/1888.jpg">
+  <p class="site-author-name" itemprop="name">傻瓜四少</p>
+  <div class="site-description" itemprop="description">Stock & Program</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">197</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lianzhaowen" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;lianzhaowen" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/lianzhaowen" title="Twitter &amp;rarr; https:&#x2F;&#x2F;twitter.com&#x2F;lianzhaowen" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://weibo.com/1766680351" title="微博 &amp;rarr; http:&#x2F;&#x2F;weibo.com&#x2F;1766680351" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>微博</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://www.zhihu.com/people/6315d7e2cfdd097e44e46c51f5631459" title="知乎 &amp;rarr; http:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;6315d7e2cfdd097e44e46c51f5631459" rel="noopener" target="_blank"><i class="fa fa-fw fa-zhihu"></i>知乎</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.iwencai.com/robot-index/" title="https:&#x2F;&#x2F;www.iwencai.com&#x2F;robot-index&#x2F;" rel="noopener" target="_blank">问财</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.xueqiu.com/" title="http:&#x2F;&#x2F;www.xueqiu.com&#x2F;" rel="noopener" target="_blank">雪球</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://tushare.pro/" title="https:&#x2F;&#x2F;tushare.pro&#x2F;" rel="noopener" target="_blank">Tushare</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://book.yutiansut.com/" title="https:&#x2F;&#x2F;book.yutiansut.com&#x2F;" rel="noopener" target="_blank">QUANTAXIS</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">傻瓜四少</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">78k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:11</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1277706052&web_id=1277706052"></script>
+  </div>
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = visitors.getAttribute('id').trim();
+      var title = visitors.getAttribute('data-flag-title').trim();
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.log('Failed to save visitor count', error);
+              })
+          } else {
+              Counter('post', '/classes/Counter', { title: title, url: url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.log('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return element.getAttribute('id').trim();
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.url;
+            var time = item.time;
+            leancloudSelector(url).innerText = time;
+          }
+          for (var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=7rKmfRAU0DBhGu5A8JfFE8WP-gzGzoHsz')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': '7rKmfRAU0DBhGu5A8JfFE8WP-gzGzoHsz',
+            'X-LC-Key': 'ljFTAtpHENjCKRCsL6iVbrKG',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
+        if (localhost.test(document.URL)) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: '7rKmfRAU0DBhGu5A8JfFE8WP-gzGzoHsz',
+    appKey: 'ljFTAtpHENjCKRCsL6iVbrKG',
+    placeholder: "畅所欲言",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>
